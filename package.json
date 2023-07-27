@@ -1,0 +1,37 @@
+{
+  "name": "sample-mobile-clone",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "mock-server": "json-server ./mockdb/db.json"
+  },
+  "dependencies": {
+    "@expo/webpack-config": "^18.0.1",
+    "@react-navigation/stack": "^6.3.17",
+    "antd-mobile": "^5.32.0",
+    "axios": "^1.4.0",
+    "expo": "~48.0.18",
+    "expo-status-bar": "~1.4.4",
+    "react": "18.2.0",
+    "react-native": "0.71.8",
+    "react-native-draggable-flatlist": "^4.0.1",
+    "react-native-gesture-handler": "~2.9.0",
+    "react-native-reanimated": "~2.14.4",
+    "react-native-web": "~0.18.10",
+    "react-navigation": "^4.4.4",
+    "react-navigation-stack": "^2.10.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/react": "~18.0.14",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-native": "^0.72.2",
+    "json-server": "^0.17.3",
+    "typescript": "^4.9.4"
+  },
+  "private": true
+}
