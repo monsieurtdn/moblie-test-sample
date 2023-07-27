@@ -3,10 +3,9 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native';
 import ProductListItem from '../components/ProductListItem';
 import axios from 'axios';
-import { getActiveChildNavigationOptions } from 'react-navigation';
 
 const styles = StyleSheet.create({
     categoryIcon: {
@@ -74,6 +73,7 @@ export default class Category extends React.Component<any, any>  {
 
     render() {
         return (
+            <View>
             <FlatList data={this.state.products}
                 numColumns={2}
                 renderItem={({ item }) =>
@@ -83,7 +83,7 @@ export default class Category extends React.Component<any, any>  {
                 }
                 keyExtractor={(item) => `${item.id}`}
             />
-
+    </View>
 
         )
     }
