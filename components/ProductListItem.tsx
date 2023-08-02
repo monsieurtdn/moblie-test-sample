@@ -51,10 +51,9 @@ function ProductListItem(props: { product: any; onAddToCartClick?: (event: Gestu
     const imagePath = product.image[0].url
 
     return (
-        <GestureHandlerRootView>
             <View style={styles.shadow}>
                 <View style={styles.container}>
-                    <Image source={imagePath} style={styles.img} />
+                    <Image source={{uri: imagePath}} style={styles.img} />
 
                     <View style={styles.info}>
                         <Text style={styles.name}>{product.name}</Text>
@@ -67,7 +66,6 @@ function ProductListItem(props: { product: any; onAddToCartClick?: (event: Gestu
                     </View>
                 </View>
             </View>
-        </GestureHandlerRootView>
     )
 }
 export default ProductListItem;

@@ -14,19 +14,14 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     container: {
+        flex: 1,
+        alignItems: 'stretch',
 
+        paddingLeft: 16,
+        paddingRight: 16,
+        justifyContent: 'center',
+ 
 
-            flex: 1,
-            alignItems: 'stretch',
-            backgroundColor: '#fff',
-            padding: 16,
-            borderRadius: 4,
-            shadowColor: '#000',
-            shadowOpacity: 0.3,
-            shadowRadius: 10,
-            shadowOffset: { width:0, height: 0},
-            justifyContent: 'center'
-        
     },
     title: {
         textTransform: 'uppercase',
@@ -42,9 +37,7 @@ export default class Categories extends React.Component<any, any> {
 
 
 
-    static navigationOptions = {
-        title: 'Header',
-    }
+
     constructor(props: any) {
         super(props);
         this.state = {
@@ -53,18 +46,18 @@ export default class Categories extends React.Component<any, any> {
             ]
         };
     }
-    
+
     componentDidMount(): void {
-      axios.get('/categories')
-        .then(res => {
-            this.setState({
-                categories: res.data
+        axios.get('/categories')
+            .then(res => {
+                this.setState({
+                    categories: res.data
+                })
             })
-        })
-        .catch(error => {
-            console.log(error)
-        }
-        )
+            .catch(error => {
+                console.log(error)
+            }
+            )
     }
 
     render() {
@@ -74,23 +67,23 @@ export default class Categories extends React.Component<any, any> {
         return (
             <View style={styles.container}>
 
-                    
-                    <FlatList
-                        data={categories}
-                        renderItem={({ item }) => (
-                            <CategoryListItem
-                                category={item}
-                                onPress={() => {
-                                    navigation.navigate('Category',{
-                                        categoryName: item.name,
-                                        categoryID: item.id
-                                    });
-                                }}
-                            />
-                        )}
-                        keyExtractor={(item) => `${item.id}`}
-                        contentContainerStyle={styles.container}
-                    />
+
+                <FlatList
+                    data={categories}
+                    renderItem={({ item }) => (
+                        <CategoryListItem
+                            category={item}
+                            onPress={() => {
+                                navigation.navigate('Category', {
+                                    categoryName: item.name,
+                                    categoryID: item.id
+                                });
+                            }}
+                        />
+                    )}
+                    keyExtractor={(item) => `${item.id}`}
+                    contentContainerStyle={styles.container}
+                />
 
             </View>
         );

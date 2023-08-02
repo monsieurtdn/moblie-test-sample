@@ -8,11 +8,6 @@ import ProductListItem from '../components/ProductListItem';
 import axios from 'axios';
 
 const styles = StyleSheet.create({
-    categoryIcon: {
-        fontSize: 72,
-        marginTop: '5px',
-        alignSelf: 'center'
-    },
     container: {
         flex: 1,
         alignItems: 'center',
@@ -40,50 +35,47 @@ const styles = StyleSheet.create({
 });
 
 export default class Category extends React.Component<any, any>  {
-    static navigationOptions = ({ navigation }: { navigation: any }) => {
-        
+    static props: { route: any; };
 
-        return {
-            title: navigation.getParam('categoryName'),
- 
-            
-        }
-    }
+
+
+
     constructor(props: any) {
         super(props);
         this.state = {
             products: [
-                
+
             ]
         };
     }
 
     async componentDidMount(): Promise<void> {
-        const { navigation } = this.props;
-        const id  = navigation.getParam('categoryID');
-        
-        console.log(id);
+        const { route } = this.props;
+        console.log(route.params)
+        const { categoryID } = route.params;
+
+        console.log(categoryID);
         try {
-            const {data: products} = await axios.get(`/products?category=${id}`);
-            this.setState({products});
+            const { data: products } = await axios.get(`/products?category=${categoryID}`);
+            this.setState({ products });
         } catch (error) {
             console.log(error);
         }
-      }
+    }
 
     render() {
         return (
             <View>
-            <FlatList data={this.state.products}
-                numColumns={2}
-                renderItem={({ item }) =>
-                    <View style={styles.wrapper}>
-                        <ProductListItem product={item} />
-                    </View>
-                }
-                keyExtractor={(item) => `${item.id}`}
-            />
-    </View>
+                <FlatList data={this.state.products}
+                    numColumns={2}
+                    renderItem={({ item }) =>
+                        <View style={styles.wrapper}>
+                            <ProductListItem product={item} />
+                        </View>
+                    }
+                    keyExtractor={(item) => `${item.id}`}
+                />
+            </View>
 
         )
     }
