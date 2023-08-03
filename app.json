@@ -4,10 +4,10 @@
     "slug": "sample-mobile-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Icon1.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Icon1.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,13 +18,25 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+      "np": {
+        "foregroundImage": "./assets/Icon1.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.neidit2k2.samplemobileclone"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/Icon1.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "eca2dcf0-942e-439c-9224-929651621171"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/eca2dcf0-942e-439c-9224-929651621171"
     }
   }
 }
